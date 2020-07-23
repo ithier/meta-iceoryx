@@ -1,2 +1,2 @@
 # meta-iceoryx
-Layer to for integrating iceoryx into Yocto builds.
+Layer for integrating iceoryx into Yocto builds.
