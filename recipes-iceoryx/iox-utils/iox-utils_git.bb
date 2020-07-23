@@ -1,7 +1,5 @@
 #
-# The iceoryx utilities library.
-# This recipe only exports a -staticdev package for other recipes to use as a dependency.
-# Including this recipe does not deploy anything to target images.
+# Recipe for the utilities library used by the various iceoryx components.
 #
 
 SUMMARY = "The iceoryx utilities library that brings cxx features to c++11"
@@ -20,9 +18,13 @@ inherit cmake
 
 S = "${WORKDIR}/git/iceoryx_utils"
 
-EXTRA_OECMAKE += "-DCMAKE_PREFIX_PATH=${libdir} -DCMAKE_INSTALL_PREFIX=${exec_prefix} -DCMAKE_BUILD_TYPE=Release -Dtest=OFF"
+EXTRA_OECMAKE += " \
+		-DCMAKE_PREFIX_PATH=${libdir} \
+		-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
+		-DCMAKE_BUILD_TYPE=Release -Dtest=OFF \
+		"
 
-# Install CMake modules in the location that BitBake looks.
+# Install CMake modules in the default location for BitBake.
 do_install_append() {
 
 	install -d ${D}${datadir}/cmake/Modules

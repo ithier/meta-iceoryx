@@ -19,9 +19,10 @@ inherit cmake
 
 S = "${WORKDIR}/git/"
 
-EXTRA_OECMAKE += "	-DCMAKE_PREFIX_PATH=${libdir} \
-				 	-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
-				 "
+EXTRA_OECMAKE = " \	
+			-DCMAKE_PREFIX_PATH=${libdir} \
+			-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
+			"
 
 # Install CMake modules in the location that BitBake looks.
 do_install_append() {
