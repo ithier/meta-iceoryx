@@ -23,6 +23,3 @@ EXTRA_OECMAKE = " \
 		-DCMAKE_MODULE_PATH=${libdir} \
 		-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
         "
-
-
-FILES_${PN} += "${bindir}/*"

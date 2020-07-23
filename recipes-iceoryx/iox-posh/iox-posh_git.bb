@@ -12,10 +12,10 @@ BRANCH = "master"
 SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
 SRCREV = "7fc55026c32a2fa1eff8d812ffc6c650bb8cc66c"
 
-PROVIDES = "iox-posh iox-roudi"
-
 DEPENDS = "cpptoml iox-utils"
 RDEPENDS_${PN} = ""
+
+RPROVIDES_${PN} = "iox-roudi"
 
 inherit cmake
 
@@ -29,12 +29,7 @@ EXTRA_OECMAKE = " \
 		-DTOML_CONFIG=ON \
         "
 
+SYSROOT_DIRS += "${bindir}"
 
-# Install CMake modules in the default location for BitBake.
-do_install_append() {
-	install -d ${D}${datadir}/cmake/Modules
-	install -m 0444 ${WORKDIR}/git/iceoryx_posh/cmake/iceoryx_poshConfig.cmake ${D}${datadir}/cmake/Modules
-}
-
-FILES_${PN} += "${bindir}/* /usr/etc/*"
-FILES_${PN}-staticdev += "${includedir}/* ${libdir}/* ${datadir}/*"
+# Include additionally generated default configs
+FILES_${PN} += "/usr/etc/*"  

@@ -30,7 +30,6 @@ do_install_append() {
 	install -d ${D}${datadir}/cmake/Modules
 	install -m 0444 ${WORKDIR}/git/iceoryx_utils/cmake/IceoryxPackageHelper.cmake ${D}${datadir}/cmake/Modules
 	install -m 0444 ${WORKDIR}/git/iceoryx_utils/cmake/IceoryxPlatformDetection.cmake ${D}${datadir}/cmake/Modules
-	install -m 0444 ${WORKDIR}/git/iceoryx_utils/cmake/iceoryx_utilsConfig.cmake ${D}${datadir}/cmake/Modules
 }
 
 ALLOW_EMPTY_${PN} = "1"

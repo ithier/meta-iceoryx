@@ -1,5 +1,5 @@
 #
-# The iceoryx introspection client.
+# Recipe for the iceoryx introspection client.
 #
 
 SUMMARY = "The iceoryx introspection client."
@@ -11,7 +11,7 @@ BRANCH = "master"
 SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
 SRCREV = "7fc55026c32a2fa1eff8d812ffc6c650bb8cc66c"
 
-DEPENDS = "iox-utils iox-posh"
+DEPENDS = "iox-utils iox-posh ncurses"
 RDEPENDS_${PN} = ""
 
 inherit cmake
@@ -23,6 +23,3 @@ EXTRA_OECMAKE += " \
 				-DCMAKE_MODULE_PATH=${libdir} \
 				-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
 			"
-
-
-FILES_${PN} += "${bindir}/*"
