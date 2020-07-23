@@ -11,6 +11,8 @@ BRANCH = "master"
 SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
 SRCREV = "7fc55026c32a2fa1eff8d812ffc6c650bb8cc66c"
 
+PROVIDES = "iox-posh iox-roudi iox-examples"
+
 DEPENDS = "cpptoml iox-utils"
 RDEPENDS_${PN} = ""
 
@@ -25,10 +27,8 @@ EXTRA_OECMAKE += "	-DCMAKE_PREFIX_PATH=${libdir} \
 					-DTOML_CONFIG=ON"
 
 do_install_append() {
-
 	install -d ${D}${datadir}/cmake/Modules
 	install -m 0444 ${WORKDIR}/git/iceoryx_posh/cmake/iceoryx_poshConfig.cmake ${D}${datadir}/cmake/Modules
-
 }
 
 FILES_${PN} += "${bindir}/* /usr/etc/*"
