@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
 SRCREV = "7fc55026c32a2fa1eff8d812ffc6c650bb8cc66c"
 
 DEPENDS = "iox-posh iox-utils"
-RDEPENDS_${PN} = ""
+RDEPENDS_${PN} = "iox-roudi"
 
 inherit cmake
 
