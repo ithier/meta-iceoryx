@@ -3,8 +3,7 @@ Layer for integrating iceoryx into Yocto builds.
 
 To include iceoryx in your Yocto builds, simply add this layer to your bblayers stack.
 
-Additionally, a reference image is provided provides a build of the default `core-image-base` 
-and all iceoryx components.
+Additionally, a reference image provides a build of the default `core-image-base` with all iceoryx components.
 
 ## Quick Start with Raspberry Pi 4
 
