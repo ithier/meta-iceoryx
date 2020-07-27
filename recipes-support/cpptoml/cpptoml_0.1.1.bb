@@ -1,9 +1,3 @@
-#
-# A header-only library for parsing TOML configuration files.
-# This recipe only exports a -staticdev package for other recipes to use as a dependency.
-# Including this recipe does not deploy anything to target images.
-#
-
 SUMMARY = "A header-only library for parsing TOML configuration files."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=8739ce451f437fa9493b37a405fb16f1"
