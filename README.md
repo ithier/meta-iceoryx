@@ -78,5 +78,5 @@ CONF_VERSION = "1"
 #### Build the reference image
 ```
 $ cd ~/Yocto/build
-$ bitbake iceoryx-base-image.bb
+$ bitbake iceoryx-base-image
 ```

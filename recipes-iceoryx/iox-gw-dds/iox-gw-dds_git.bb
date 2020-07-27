@@ -1,7 +1,3 @@
-#
-# The iceoryx DDS gateway for integrating multiple iceoryx hosts across a DDS network.
-#
-
 SUMMARY = "An iceoryx gateway implementation for DDS networks."
 SECTION = "iceoryx"
 LICENSE = "Apache-2"

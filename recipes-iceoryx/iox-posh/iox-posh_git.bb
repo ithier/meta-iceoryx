@@ -1,8 +1,3 @@
-#
-# Recipe for the POSH (Posix Shared Memory) component of iceoryx.
-# Includes POSH library and RouDi.
-#
-
 SUMMARY = "A library for creating iceoryx applications, and the iceoryx routing and memory management daemon."
 SECTION = "iceoryx"
 LICENSE = "Apache-2"
@@ -23,7 +18,6 @@ S = "${WORKDIR}/git/iceoryx_posh"
 
 EXTRA_OECMAKE = " \
 		-DCMAKE_PREFIX_PATH=${libdir} \
-		-DCMAKE_MODULE_PATH=${libdir} \
 		-DCMAKE_INSTALL_PREFIX=${exec_prefix} \
 		-Dtest=OFF \
 		-DTOML_CONFIG=ON \
@@ -32,4 +26,4 @@ EXTRA_OECMAKE = " \
 SYSROOT_DIRS += "${bindir}"
 
 # Include additionally generated default configs
-FILES_${PN} += "/usr/etc/*"  
+FILES_${PN} += "/usr/etc/*"

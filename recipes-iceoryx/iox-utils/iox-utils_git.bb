@@ -1,7 +1,3 @@
-#
-# Recipe for the utilities library used by the various iceoryx components.
-#
-
 SUMMARY = "The iceoryx utilities library that brings cxx features to c++11"
 SECTION = "iceoryx"
 LICENSE = "Apache-2"

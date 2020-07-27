@@ -1,7 +1,3 @@
-#
-# Recipe for the iceoryx introspection client.
-#
-
 SUMMARY = "The iceoryx introspection client."
 SECTION = "iceoryx"
 LICENSE = "Apache-2"

@@ -1,7 +1,3 @@
-#
-# Recipe for the iceoryx example applications.
-#
-
 SUMMARY = "Example iceoryx applications."
 SECTION = "iceoryx"
 LICENSE = "Apache-2"
