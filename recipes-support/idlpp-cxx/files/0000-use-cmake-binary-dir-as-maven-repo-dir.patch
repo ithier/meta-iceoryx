@@ -1,0 +1,13 @@
+diff --git a/idlpp/idlc/CMakeLists.txt b/idlpp/idlc/CMakeLists.txt
+index 94c1a7f..b2d2e2e 100644
+--- a/idlpp/idlc/CMakeLists.txt
++++ b/idlpp/idlc/CMakeLists.txt
+@@ -25,7 +25,7 @@ configure_file("${IDLPP_VLITE}/lib/java/idtpp.jar" "${CMAKE_CURRENT_BINARY_DIR}/
+ add_custom_target(
+     idlcpp_c
+     ALL
+-    "${Maven_EXECUTABLE}" "-q" "package"
++    "${Maven_EXECUTABLE}" "-Dmaven.repo.local=${CMAKE_BINARY_DIR}" "-q" "package"
+     DEPENDS ${IDLC_POM_FILE} ${IDLC_G_SOURCES} ${IDLC_G4_SOURCES} ${IDLC_JAVA_SOURCES} ${IDLC_ST_SOURCES}
+     BYPRODUCTS "${IDLCPP_C_JAR}"
+     COMMENT "Building JAR file ${IDLCPP_C_JAR}")
