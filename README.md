@@ -7,35 +7,33 @@ Additionally, a reference image provides a build of the default `core-image-base
 
 ## Quick Start with Raspberry Pi 4
 
-#### Fetch the Yocto project's reference distribution, poky:
+#### Set up a Yocto working directory
 ```
-$ cd ~
-$ mkdir Yocto
+$ mkdir -p ~/Yocto
+```
+
+#### Fetch all required Yocto layers:
+```
 $ cd Yocto
 $ git clone -b dunfell http://git.yoctoproject.org/git/poky 
-```
-
-#### Fetch the official Raspberry Pi BSP layer:
-```
-$ cd ~/Yocto
+$ git clone -b dunfell git clone -b dunfell https://github.com/openembedded/meta-openembedded.git
+$ git clone -b dunfell git://git.yoctoproject.org/meta-java # Only required for build dependencies
 $ git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi 
-```
-
-#### Fetch this iceoryx layer:
-```
-$ cd ~/Yocto
 $ git clone git://github.com/ithier/meta-iceoryx
 ```
 
 #### Configure the build environment:
 ```
-$ cd ~/Yocto
-$ source oe-init-build-env
+$ cd Yocto
+$ source ./poky/oe-init-build-env
 ```
 
 #### Configure your build:
 
-~/Yocto/build/conf/bblayers.conf:
+Use a text editor to modify the following files:
+
+~/Yocto/build/conf/bblayers.conf
+
 ```
 POKY_BBLAYERS_CONF_VERSION = "2"
 
@@ -47,12 +45,13 @@ BBFILES ?= ""
 BBLAYERS ?= " \
   ${BSPDIR}/poky/meta \
   ${BSPDIR}/poky/meta-poky \
+  ${BSPDIR}/meta-java \
   ${BSPDIR}/meta-raspberrypi \
   ${BSPDIR}/meta-iceoryx \
   "
 ```
 
-~/Yocto/build/conf/local.conf:
+~/Yocto/build/conf/local.conf
 
 (Basically the default without all the commented out options)
 ```
