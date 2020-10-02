@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=46d6aa0ba1fa2ed247cd8d42f2
 
 BRANCH = "master"
 SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
-SRCREV = "7fc55026c32a2fa1eff8d812ffc6c650bb8cc66c"
+SRCREV = "785d3bd67352edb06d0976979d006a91560024fe"
 
 DEPENDS = "iox-posh iox-utils"
 RDEPENDS_${PN} = "iox-roudi"
