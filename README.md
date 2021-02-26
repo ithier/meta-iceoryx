@@ -1,38 +1,38 @@
 # meta-iceoryx
-Layer for integrating iceoryx into Yocto builds.
+Yocto layer for integrating [iceoryx](https://github.com/eclipse-iceoryx/iceoryx) into Yocto build toolchains.
 
-To include iceoryx in your Yocto builds, simply add this layer to your bblayers stack.
-
-Additionally, a reference image provides a build of the default `core-image-base` with all iceoryx components.
+A minimal reference image definition including iceoryx components, `iceoryx-base-image`, is also included.
 
 ## Quick Start with Raspberry Pi 4
 
-#### Set up a Yocto working directory
+The following instructions have been tested with Yocto release: `dunfell`
+
+### Set up a Yocto workspace
+
 ```
 $ mkdir -p ~/Yocto
 ```
 
-#### Fetch all required Yocto layers:
+### Fetch all required Yocto layers:
 ```
 $ cd Yocto
-$ git clone -b dunfell http://git.yoctoproject.org/git/poky 
-$ git clone -b dunfell git clone -b dunfell https://github.com/openembedded/meta-openembedded.git
-$ git clone -b dunfell git://git.yoctoproject.org/meta-java # Only required for build dependencies
-$ git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi 
+$ export YOCTO_RELEASE=dunfell
+$ git clone -b $YOCTO_RELEASE http://git.yoctoproject.org/git/poky 
+$ git clone -b $YOCTO_RELEASE git clone -b dunfell https://github.com/openembedded/meta-openembedded.git
+$ git clone -b $YOCTO_RELEASE git://git.yoctoproject.org/meta-raspberrypi 
 $ git clone git://github.com/ithier/meta-iceoryx
 ```
 
-#### Configure the build environment:
+### Configure the build environment:
 ```
 $ cd Yocto
 $ source ./poky/oe-init-build-env
 ```
 
-#### Configure your build:
-
+### Configure your build:
 Use a text editor to modify the following files:
 
-~/Yocto/build/conf/bblayers.conf
+**~/Yocto/build/conf/bblayers.conf**
 
 ```
 POKY_BBLAYERS_CONF_VERSION = "2"
@@ -45,15 +45,14 @@ BBFILES ?= ""
 BBLAYERS ?= " \
   ${BSPDIR}/poky/meta \
   ${BSPDIR}/poky/meta-poky \
-  ${BSPDIR}/meta-java \
   ${BSPDIR}/meta-raspberrypi \
   ${BSPDIR}/meta-iceoryx \
   "
 ```
 
-~/Yocto/build/conf/local.conf
+**~/Yocto/build/conf/local.conf**
 
-(Basically the default without all the commented out options)
+(This is the default configuration with all commented out lines removed)
 ```
 MACHINE ??= 'raspberrypi4-64'
 DISTRO ?= 'poky'
@@ -74,7 +73,7 @@ PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
 CONF_VERSION = "1"
 ```
 
-#### Build the reference image
+### Build the reference image:
 ```
 $ cd ~/Yocto/build
 $ bitbake iceoryx-base-image
