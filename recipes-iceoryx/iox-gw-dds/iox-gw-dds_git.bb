@@ -7,18 +7,22 @@ BRANCH = "master"
 SRC_URI = "git://github.com/eclipse/iceoryx.git;protocol=ssh;branch=${BRANCH}"
 SRCREV = "785d3bd67352edb06d0976979d006a91560024fe"
 
-DEPENDS = "iox-posh iox-utils"
-RDEPENDS_${PN} = "iox-roudi"
+# ===== DISABLED ===== #
+# Recipe is not quite functional. Need to address Java build dependency introduced by
+# idlpp-cxx.
 
-DEPENDS = "iox-posh iox-utils cyclonedds cyclonedds-cxx idlpp-cxx cpptoml"
-RDEPENDS_${PN} = "iox-roudi cyclonedds-cxx"
+# DEPENDS = "iox-posh iox-utils"
+# RDEPENDS_${PN} = "iox-roudi"
 
-inherit cmake
+# DEPENDS = "iox-posh iox-utils cyclonedds cyclonedds-cxx idlpp-cxx cpptoml"
+# RDEPENDS_${PN} = "iox-roudi cyclonedds-cxx"
 
-S = "${WORKDIR}/git/iceoryx_dds"
+# inherit cmake
 
-EXTRA_OECMAKE = " \
-            -DCMAKE_PREFIX_PATH=${libdir} \
-            -DCMAKE_INSTALL_PREFIX=${exec_prefix} \
-            -Dtest=off \
-            "
+# S = "${WORKDIR}/git/iceoryx_dds"
+
+# EXTRA_OECMAKE = " \
+#             -DCMAKE_PREFIX_PATH=${libdir} \
+#             -DCMAKE_INSTALL_PREFIX=${exec_prefix} \
+#             -Dtest=off \
+#             "
