@@ -7,13 +7,13 @@ LICENSE = "Eclipse-2"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=ca2dafd1f07f3cd353d0454d3c4d9e80"
 
 SRC_URI = "git://github.com/eclipse-cyclonedds/cyclonedds-cxx.git;protocol=git"
-SRCREV = "5a095c27477f343eb9938eb846dc3e74c1d7aacc"
+SRCREV = "618a06568665fec59f8b2b453b7c9d401fa62211"
 
-DEPENDS = "cyclonedds idlpp-cxx openjdk-8-native"
+DEPENDS = "cyclonedds idlpp-cxx"
 RDEPENDS_${PN} = "cyclonedds"
 
-export JAVA_HOME 
-JAVA_HOME = "${STAGING_DIR_NATIVE}/${libdir_nativesdk}/jvm/openjdk-8-native/"
+# export JAVA_HOME 
+# JAVA_HOME = "${STAGING_DIR_NATIVE}/${libdir_nativesdk}/jvm/openjdk-8-native/"
 
 inherit cmake
 

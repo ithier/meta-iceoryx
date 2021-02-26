@@ -9,3 +9,16 @@ SRCREV = "785d3bd67352edb06d0976979d006a91560024fe"
 
 DEPENDS = "iox-posh iox-utils"
 RDEPENDS_${PN} = "iox-roudi"
+
+DEPENDS = "iox-posh iox-utils cyclonedds cyclonedds-cxx idlpp-cxx cpptoml"
+RDEPENDS_${PN} = "iox-roudi cyclonedds-cxx"
+
+inherit cmake
+
+S = "${WORKDIR}/git/iceoryx_dds"
+
+EXTRA_OECMAKE = " \
+            -DCMAKE_PREFIX_PATH=${libdir} \
+            -DCMAKE_INSTALL_PREFIX=${exec_prefix} \
+            -Dtest=off \
+            "
